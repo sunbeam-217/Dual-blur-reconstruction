@@ -30,5 +30,11 @@ The following videos show rendered results on the left and the input images on t
 
 <video src="https://github.com/user-attachments/assets/c40cb281-be34-410c-abac-1bda991e4bc1" controls width="640"></video>
 
+## Quick Start
 
+## Limitation
 
+## Acknowledge
+This repository is built upon the [BAD-Gaussians](https://github.com/...) framework.  
+We sincerely thank the authors for their excellent work and open-source contribution.  
+Some file structures and variable names are retained from BAD-Gaussians for implementation consistency.
