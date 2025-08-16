@@ -1,39 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unified 3D Gaussian Splatting</title>
     <style>
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
+        /* 样式重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background: #f4f4f9; color: #333; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding-left: 20px; }
+        img, video { display: block; margin: 20px auto; max-width: 100%; border-radius: 8px; }
+
+        /* 顶部导航栏 */
         header {
             background-color: #24292f;
             color: white;
             padding: 20px 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-        nav {
-            margin-top: 10px;
-        }
+        header h1 { margin-bottom: 10px; font-size: 2rem; }
         nav a {
             color: white;
-            text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
+            text-transform: uppercase;
         }
-        nav a:hover {
-            text-decoration: underline;
-        }
+        nav a:hover { text-decoration: underline; }
+
+        /* 主内容 */
         main {
             max-width: 1000px;
             margin: 40px auto;
@@ -46,27 +41,17 @@
             margin-bottom: 30px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        h2 {
-            color: #24292f;
-            margin-top: 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        img, video {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            border-radius: 8px;
-        }
+        h2 { color: #24292f; margin-top: 0; }
+
+        /* 视频播放器 */
+        video { max-width: 640px; }
+
+        /* 页脚 */
         footer {
             text-align: center;
             padding: 20px;
             color: #666;
             font-size: 0.9rem;
-        }
-        a {
-            color: #0366d6;
         }
     </style>
 </head>
@@ -75,29 +60,29 @@
 <header>
     <h1>Unified 3D Gaussian Splatting</h1>
     <nav>
-        <a href="#overview">Method</a>
-        <a href="#results">Results</a>
-        <a href="#quickstart">Quick Start</a>
-        <a href="#acknowledge">Acknowledge</a>
+        <a href="#overview">方法概述</a>
+        <a href="#results">渲染结果</a>
+        <a href="#quickstart">快速开始</a>
+        <a href="#acknowledge">致谢</a>
     </nav>
 </header>
 
 <main>
 
 <section id="overview">
-    <h2>🔍 Method Overview</h2>
-    <p>Our method leverages a unified 3D Gaussian representation to jointly model motion blur and defocus blur across multi-view images. The key contributions include:</p>
+    <h2>🔍 方法概述</h2>
+    <p>我们的方法利用统一的 3D 高斯表示，联合建模运动模糊和散焦模糊，跨多视角图像进行重建。关键贡献包括：</p>
     <ul>
-        <li>Dual-blur perception module generates pixel-level blur masks to explicitly mitigate motion and defocus blur during 3D reconstruction.</li>
-        <li>Blur-aware Gaussian splatting incorporates blur masks for gradient optimization, ensuring accurate modeling and avoiding degraded information.</li>
-        <li>UGR-Opacity adaptive optimization refines Gaussian representations in under-optimized blurred regions, improving accuracy and quality.</li>
+        <li>引入双重模糊感知模块，生成像素级模糊掩码，显式减轻运动和散焦模糊对 3D 重建的影响。</li>
+        <li>设计模糊感知的高斯溅射过程，结合模糊掩码进行梯度优化，确保准确建模，避免信息退化。</li>
+        <li>提出 UGR-Opacity 自适应优化，在欠优化的模糊区域细化高斯表示，提高准确性和质量。</li>
     </ul>
-    <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202506261356962.png" alt="pipeline">
+    <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202506261356962.png" alt="方法流程图">
 </section>
 
 <section id="results">
-    <h2>🎥 Rendering Results</h2>
-    <p>The following videos show rendered results on the left and the input images on the right.</p>
+    <h2>🎥 渲染结果</h2>
+    <p>以下视频展示了我们方法在处理运动和散焦模糊方面的能力。左侧为渲染结果，右侧为输入图像。</p>
     <video src="https://github.com/user-attachments/assets/377de659-3e9f-47ed-b9f6-5821fefa944d" controls></video>
     <video src="https://github.com/user-attachments/assets/86f79308-6970-49d7-8d1f-e2954600b49b" controls></video>
     <video src="https://github.com/user-attachments/assets/75e338ee-7c7e-4935-a1e8-60910ea7ee13" controls></video>
@@ -106,26 +91,19 @@
 </section>
 
 <section id="quickstart">
-    <h2>Quick Start</h2>
-    <p><!-- 添加快速开始步骤 --> </p>
-</section>
-
-<section id="limitations">
-    <h2>Limitations</h2>
-    <p><!-- 添加方法局限性 --> </p>
+    <h2>🚀 快速开始</h2>
+    <p>在此部分，您可以提供如何快速开始使用您方法的步骤，例如安装依赖、运行示例代码等。</p>
 </section>
 
 <section id="acknowledge">
-    <h2>Acknowledge</h2>
-    <p>This repository is built upon the <a href="https://github.com/...">BAD-Gaussians</a> framework.<br>
-       We sincerely thank the authors for their excellent work and open-source contribution.<br>
-       Some file structures and variable names are retained from BAD-Gaussians for implementation consistency.</p>
+    <h2>🙏 致谢</h2>
+    <p>本仓库基于 <a href="https://github.com/..." target="_blank">BAD-Gaussians</a> 框架构建。我们衷心感谢作者们的出色工作和开源贡献。部分文件结构和变量名称保留自 BAD-Gaussians，以保持实现一致性。</p>
 </section>
 
 </main>
 
 <footer>
-    &copy; 2025 Your Name. GitHub Pages Project.
+    &copy; 2025 您的姓名。GitHub Pages 项目。
 </footer>
 
 </body>
