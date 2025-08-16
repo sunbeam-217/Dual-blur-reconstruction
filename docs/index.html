@@ -1,2 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unified 3D Gaussian Splatting</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #333; }
+        img, video { max-width: 100%; margin: 10px 0; }
+        a { color: #0366d6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { padding-left: 20px; }
+        hr { margin: 40px 0; border: none; border-top: 1px solid #ccc; }
+    </style>
+</head>
+<body>
 
-<h1>Hello, GitHub Pages!</h1>
+<h1>Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction</h1>
+<p>Official implementation of our CAD/Graphics 2025 & Visual Informatics paper.</p>
+
+<hr>
+
+<h2>🔍 Method Overview</h2>
+<p>Our method leverages a unified 3D Gaussian representation to jointly model motion blur and defocus blur across multi-view images. The key contributions include:</p>
+<ul>
+    <li>We introduce a dual-blur perception module that generates pixel-level blur masks to explicitly mitigate the impact of motion and defocus blur during 3D reconstruction.</li>
+    <li>We design a blur-aware Gaussian splatting process that incorporates blur masks for gradient optimization, ensuring accurate modeling and avoiding degraded information.</li>
+    <li>We propose a UGR-Opacity adaptive optimization that refines Gaussian representations in under-optimized blurred regions, improving accuracy and quality.</li>
+</ul>
+
+<img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202506261356962.png" alt="pipeline">
+
+<hr>
+
+<h2>🎥 Rendering Results</h2>
+<p>We present several rendering results demonstrating our method's ability to handle motion and defocus blur in 3D Gaussian splatting. The following videos show rendered results on the left and the input images on the right.</p>
+
+<video src="https://github.com/user-attachments/assets/377de659-3e9f-47ed-b9f6-5821fefa944d" controls></video>
+<video src="https://github.com/user-attachments/assets/86f79308-6970-49d7-8d1f-e2954600b49b" controls></video>
+<video src="https://github.com/user-attachments/assets/75e338ee-7c7e-4935-a1e8-60910ea7ee13" controls></video>
+<video src="https://github.com/user-attachments/assets/0158289b-1163-4f98-b1b4-054e9f72fff1" controls></video>
+<video src="https://github.com/user-attachments/assets/c40cb281-be34-410c-abac-1bda991e4bc1" controls></video>
+
+<hr>
+
+<h2>Quick Start</h2>
+<p><!-- 可以在这里添加快速开始的内容 --></p>
+
+<h2>Limitation</h2>
+<p><!-- 可以在这里添加方法的局限性 --></p>
+
+<h2>Acknowledge</h2>
+<p>This repository is built upon the <a href="https://github.com/...">BAD-Gaussians</a> framework.<br>
+We sincerely thank the authors for their excellent work and open-source contribution.<br>
+Some file structures and variable names are retained from BAD-Gaussians for implementation consistency.</p>
+
+</body>
+</html>
