@@ -1,110 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unified 3D Gaussian Splatting</title>
-    <style>
-        /* 样式重置 */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background: #f4f4f9; color: #333; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; padding-left: 20px; }
-        img, video { display: block; margin: 20px auto; max-width: 100%; border-radius: 8px; }
-
-        /* 顶部导航栏 */
-        header {
-            background-color: #24292f;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 { margin-bottom: 10px; font-size: 2rem; }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        nav a:hover { text-decoration: underline; }
-
-        /* 主内容 */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        section {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h2 { color: #24292f; margin-top: 0; }
-
-        /* 视频播放器 */
-        video { max-width: 640px; }
-
-        /* 页脚 */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction</title>
+  <meta name="description" content="Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction – Project Page" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet" />
+  <style>
+    :root { --brand:#2563eb; --ink:#1f2328; --muted:#66707b; }
+    html,body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); }
+    .hero.is-brand { background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%); }
+    .publication-title { font-weight: 800; letter-spacing: -0.02em; }
+    .subtitle.lead { color: var(--muted); }
+    .cardish { background:#fff; border-radius:12px; box-shadow:0 4px 16px rgba(31,35,40,0.08); padding:2rem; }
+    .content img, .content video { border-radius:12px; }
+    .spacer { height: .75rem; }
+    .video-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
+    .footer { color:#8a939f; }
+    .section-title { font-weight:800; }
+    pre { white-space: pre-wrap; }
+    .capsule-links { margin-top:1rem; }
+    .capsule-links a {
+      display:inline-block;
+      margin:0 .4rem .4rem 0;
+      padding:.55rem 1.2rem;
+      border-radius:999px;
+      font-weight:600;
+      font-size:.9rem;
+      background:var(--brand);
+      color:#fff;
+      border:1px solid var(--brand);
+      transition: background .2s, transform .2s;
+    }
+    .capsule-links a:hover { background:#1d4ed8; transform: translateY(-2px); }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Unified 3D Gaussian Splatting</h1>
-    <nav>
-        <a href="#overview">方法概述</a>
-        <a href="#results">渲染结果</a>
-        <a href="#quickstart">快速开始</a>
-        <a href="#acknowledge">致谢</a>
-    </nav>
-</header>
+  <!-- Title Block -->
+  <section class="hero is-brand">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+        <h1 class="title is-1 publication-title">Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction</h1>
+        <p class="subtitle lead">Official implementation of our CAD/Graphics 2025 & Visual Informatics paper.</p>
+        <p class="is-size-6">Authors: Li Liu, Jing Duan, Xiaodong Fu, Wei Peng, Lijun Liu</p>
+        <p class="is-size-6">Kunming University of Science and Technology
+</p>
 
-<main>
+        <!-- Capsule links -->
+        <div class="capsule-links">
+          <a href="https://github.com/your-repo" target="_blank">Code</a>
+          <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">Paper</a>
+          <a href="https://dataset-link.com" target="_blank">Dataset</a>
+          <a href="#" target="_blank">Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="overview">
-    <h2>🔍 方法概述</h2>
-    <p>我们的方法利用统一的 3D 高斯表示，联合建模运动模糊和散焦模糊，跨多视角图像进行重建。关键贡献包括：</p>
-    <ul>
-        <li>引入双重模糊感知模块，生成像素级模糊掩码，显式减轻运动和散焦模糊对 3D 重建的影响。</li>
-        <li>设计模糊感知的高斯溅射过程，结合模糊掩码进行梯度优化，确保准确建模，避免信息退化。</li>
-        <li>提出 UGR-Opacity 自适应优化，在欠优化的模糊区域细化高斯表示，提高准确性和质量。</li>
-    </ul>
-    <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202506261356962.png" alt="方法流程图">
-</section>
+  <!-- Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <p>[Provide abstract text here summarizing the paper. Placeholder if missing from README.]</p>
+      </div>
+    </div>
+  </section>
 
-<section id="results">
-    <h2>🎥 渲染结果</h2>
-    <p>以下视频展示了我们方法在处理运动和散焦模糊方面的能力。左侧为渲染结果，右侧为输入图像。</p>
-    <video src="https://github.com/user-attachments/assets/377de659-3e9f-47ed-b9f6-5821fefa944d" controls></video>
-    <video src="https://github.com/user-attachments/assets/86f79308-6970-49d7-8d1f-e2954600b49b" controls></video>
-    <video src="https://github.com/user-attachments/assets/75e338ee-7c7e-4935-a1e8-60910ea7ee13" controls></video>
-    <video src="https://github.com/user-attachments/assets/0158289b-1163-4f98-b1b4-054e9f72fff1" controls></video>
-    <video src="https://github.com/user-attachments/assets/c40cb281-be34-410c-abac-1bda991e4bc1" controls></video>
-</section>
+  <!-- Method Overview -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">Method Overview</h2>
+        <p>Our method leverages a unified 3D Gaussian representation to jointly model motion blur and defocus blur across multi-view images. The key contributions include:</p>
+        <ul>
+          <li>Dual-blur perception module for pixel-level blur mask estimation.</li>
+          <li>Blur-aware Gaussian splatting with gradient optimization.</li>
+          <li>UGR-Opacity adaptive optimization for blurred regions.</li>
+        </ul>
+        <figure class="image">
+          <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202506261356962.png" alt="Pipeline overview" />
+        </figure>
+      </div>
+    </div>
+  </section>
 
-<section id="quickstart">
-    <h2>🚀 快速开始</h2>
-    <p>在此部分，您可以提供如何快速开始使用您方法的步骤，例如安装依赖、运行示例代码等。</p>
-</section>
+  <!-- Results -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">Results</h2>
+        <p>[Placeholder text for describing results.]</p>
+        <div class="video-grid">
+          <video src="https://github.com/user-attachments/assets/377de659-3e9f-47ed-b9f6-5821fefa944d" controls></video>
+          <video src="https://github.com/user-attachments/assets/86f79308-6970-49d7-8d1f-e2954600b49b" controls></video>
+          <video src="https://github.com/user-attachments/assets/75e338ee-7c7e-4935-a1e8-60910ea7ee13" controls></video>
+          <video src="https://github.com/user-attachments/assets/0158289b-1163-4f98-b1b4-054e9f72fff1" controls></video>
+          <video src="https://github.com/user-attachments/assets/c40cb281-be34-410c-abac-1bda991e4bc1" controls></video>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="acknowledge">
-    <h2>🙏 致谢</h2>
-    <p>本仓库基于 <a href="https://github.com/..." target="_blank">BAD-Gaussians</a> 框架构建。我们衷心感谢作者们的出色工作和开源贡献。部分文件结构和变量名称保留自 BAD-Gaussians，以保持实现一致性。</p>
-</section>
+  <!-- Quick Start -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">Quick Start</h2>
+        <pre><code># Example commands (replace with actual)
+git clone https://github.com/&lt;user&gt;/&lt;repo&gt;.git
+cd &lt;repo&gt;
+pip install -r requirements.txt
+python train.py --config configs/sample.yaml
+        </code></pre>
+      </div>
+    </div>
+  </section>
 
-</main>
+  <!-- Limitations -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">Limitations</h2>
+        <p>[Placeholder text for limitations section.]</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-    &copy; 2025 您的姓名。GitHub Pages 项目。
-</footer>
+  <!-- BibTeX -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">BibTeX</h2>
+        <pre><code>@inproceedings{your2025paper,
+  title={Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction},
+  author={...},
+  booktitle={CAD/Graphics},
+  year={2025},
+  publisher={Elsevier}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acknowledge -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title is-3 section-title">Acknowledgement</h2>
+        <p>This repository is built upon <a href="https://github.com/..." target="_blank" rel="noreferrer noopener">BAD-Gaussians</a>. We sincerely thank the authors for their excellent work and open-source contribution.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="is-size-7">© 2025 – Unified 3D Gaussian Splatting. Project page layout.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
