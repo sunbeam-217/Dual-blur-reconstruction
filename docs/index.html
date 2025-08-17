@@ -12,26 +12,26 @@
   <style>
     :root { --brand:#2563eb; --ink:#1f2328; --muted:#66707b; }
     html,body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); }
-    .hero.is-brand { background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%); }
-    .publication-title { font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; font-size: 2.5rem; }
-    .subtitle.lead { color: var(--muted); margin-bottom: 1rem; font-size: 1.3rem; }
-    .author-list { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; }
-    .affiliation { font-size: 1.1rem; color: var(--muted); margin-bottom: 1.2rem; }
-    .cardish { background:#fff; border-radius:12px; box-shadow:0 4px 16px rgba(31,35,40,0.08); padding:2rem; }
+    .hero.is-brand { background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%); padding-top: 3rem; padding-bottom: 3rem; }
+    .publication-title { font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.5rem; font-size: 2.8rem; }
+    .subtitle.lead { color: var(--muted); margin-bottom: 1.5rem; font-size: 1.5rem; }
+    .author-list { font-size: 1.4rem; font-weight: 500; margin-bottom: 1rem; }
+    .affiliation { font-size: 1.2rem; color: var(--muted); margin-bottom: 2rem; }
+    .cardish { background:#fff; border-radius:12px; box-shadow:0 4px 16px rgba(31,35,40,0.08); padding:2.5rem; margin-bottom: 2.5rem; }
     .content img, .content video { border-radius:12px; }
-    .spacer { height: .75rem; }
-    .video-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
-    .footer { color:#8a939f; }
-    .section-title { font-weight:800; font-size: 1.6rem; }
-    pre { white-space: pre-wrap; font-size: 0.95rem; }
-    .capsule-links { margin-top:1rem; }
+    .spacer { height: 1rem; }
+    .video-list { display: flex; flex-direction: column; gap: 24px; margin-top: 1.5rem; }
+    .footer { color:#8a939f; margin-top: 3rem; }
+    .section-title { font-weight:800; font-size: 1.8rem; margin-bottom: 1.5rem; }
+    pre { white-space: pre-wrap; font-size: 1rem; }
+    .capsule-links { margin-top:1.5rem; }
     .capsule-links a {
       display:inline-block;
-      margin:0 .4rem .4rem 0;
-      padding:.65rem 1.4rem;
+      margin:0 .6rem .6rem 0;
+      padding:.75rem 1.6rem;
       border-radius:999px;
       font-weight:600;
-      font-size:1rem;
+      font-size:1.05rem;
       background:var(--brand);
       color:#fff;
       border:1px solid var(--brand);
@@ -96,7 +96,7 @@
       <div class="cardish content">
         <h2 class="title section-title">Results</h2>
         <p>[Placeholder text for describing results.]</p>
-        <div class="video-grid">
+        <div class="video-list">
           <video src="https://github.com/user-attachments/assets/377de659-3e9f-47ed-b9f6-5821fefa944d" controls></video>
           <video src="https://github.com/user-attachments/assets/86f79308-6970-49d7-8d1f-e2954600b49b" controls></video>
           <video src="https://github.com/user-attachments/assets/75e338ee-7c7e-4935-a1e8-60910ea7ee13" controls></video>
