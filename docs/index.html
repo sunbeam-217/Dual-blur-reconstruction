@@ -67,7 +67,7 @@
     <div class="container is-max-desktop">
       <div class="cardish content has-text-centered">
         <figure class="image">
-          <img src="https://github.com/sunbeam-217/Dual-blur-reconstruction/blob/main/docs/index.html" alt="Teaser figure" />
+          <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202508171414740.png" alt="Teaser figure" />
         </figure>
         <p style="margin-top:1rem; font-size:1.2rem;">
           Given a set of multi-view blurry images containing both motion and defocus blur, our method can reconstruct a high-quality sharp 3D scene representation.
@@ -147,27 +147,15 @@
     </div>
   </section>
 
-  <!-- Quick Start -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="cardish content">
-        <h2 class="title section-title">Quick Start</h2>
-        <pre><code># Example commands (replace with actual)
-git clone https://github.com/&lt;user&gt;/&lt;repo&gt;.git
-cd &lt;repo&gt;
-pip install -r requirements.txt
-python train.py --config configs/sample.yaml
-        </code></pre>
-      </div>
-    </div>
-  </section>
-
   <!-- Limitations -->
   <section class="section">
     <div class="container is-max-desktop">
       <div class="cardish content">
         <h2 class="title section-title">Limitations</h2>
-        <p>[Placeholder text for limitations section.]</p>
+        <p>Performance drops in regions with severe local blur.
+          Linear camera motion modeling limits accuracy for complex trajectories.
+          Cannot handle per-pixel mixed-blur types (co-existing motion and defocus blur).
+        </p>
       </div>
     </div>
   </section>
