@@ -51,9 +51,9 @@
     }
     .capsule-links a:hover { background:#1d4ed8; transform: translateY(-1px); }
 
-    /* Adjust spacing between image and text in teaser */
-    .cardish img + p { margin-top: 0.5rem; }
-    
+    /* Teaser figure spacing */
+    .cardish img + p { margin-top: 0.3rem; font-size:1.15rem; }
+
     .footer { color:#8a939f; margin-top: 2rem; }
   </style>
 </head>
@@ -84,7 +84,7 @@
         <figure class="image">
           <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202508190018102.png" alt="Teaser figure" />
         </figure>
-        <p style="font-size:1.15rem;">
+        <p>
           Given a set of multi-view blurry images containing both motion and defocus blur, our method can reconstruct a high-quality sharp 3D scene representation.
         </p>
       </div>
@@ -131,12 +131,10 @@
     <div class="container is-max-desktop">
       <div class="cardish content">
         <h2 class="title section-title">Method Overview</h2>
-        <p>Our method leverages a unified 3D Gaussian representation to jointly model motion blur and defocus blur across multi-view images. The key contributions include:</p>
-        <ul>
-          <li>Dual-blur perception module for pixel-level blur mask estimation.</li>
-          <li>Blur-aware Gaussian splatting with gradient optimization.</li>
-          <li>UGR-Opacity adaptive optimization for blurred regions.</li>
-        </ul>
+        <p>Our three-stage framework consists of dual-blur perception, blur-aware Gaussian splatting, and joint UGR-opacity optimization. Given a sequence
+          of dual-blur images, the dual-blur perception module generates pixel-wise blur masks for each image. Blur-aware Gaussian splatting applies the masks
+          to both input and rendered images to jointly optimize the 3D Gaussians and camera poses. The UGR-opacity optimization strategy adaptively increases
+          updates in under-optimized masked regions. The final output is a clear 3D scene reconstruction.</p>
         <figure class="image">
           <img src="https://sunbeam-217.oss-cn-chengdu.aliyuncs.com/img/202506261356962.png" alt="Pipeline overview" />
         </figure>
@@ -168,43 +166,4 @@
         <h2 class="title section-title">Limitations</h2>
         <p>Performance drops in regions with severe local blur.
           Linear camera motion modeling limits accuracy for complex trajectories.
-          Cannot handle per-pixel mixed-blur types (co-existing motion and defocus blur).
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BibTeX -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="cardish content">
-        <h2 class="title section-title">BibTeX</h2>
-        <pre><code>@inproceedings{your2025paper,
-  title={Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction},
-  author={...},
-  booktitle={CAD/Graphics},
-  year={2025},
-  publisher={Elsevier}
-}</code></pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- Acknowledge -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="cardish content">
-        <h2 class="title section-title">Acknowledgement</h2>
-        <p>This repository is built upon <a href="https://github.com/..." target="_blank" rel="noreferrer noopener">BAD-Gaussians</a>. We sincerely thank the authors for their excellent work and open-source contribution.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p class="is-size-7">© 2025 – Unified 3D Gaussian Splatting. Project page layout.</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+          Cannot handle per-pixel mixed-blur types
