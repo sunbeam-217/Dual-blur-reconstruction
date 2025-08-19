@@ -17,7 +17,7 @@
     .hero.is-brand { background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%); padding-top: 3rem; padding-bottom: 3rem; }
 
     /* Titles & text */
-    .publication-title { font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; font-size: 2.8rem; }
+    .publication-title { font-weight: 800; letter-spacing: -0.02em; margin-bottom: 2.2rem; font-size: 2.8rem; }
     .subtitle.lead { color: var(--muted); margin-bottom: 1rem; font-size: 1.5rem; }
     .author-list { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem; }
     .affiliation { font-size: 1rem; color: var(--muted); margin-bottom: 1rem; }
@@ -25,6 +25,10 @@
     /* Card */
     .cardish { background:#fff; border-radius:12px; box-shadow:0 4px 16px rgba(31,35,40,0.08); padding:1.5rem; margin-bottom:1rem; }
     .content img, .content video { border-radius:12px; }
+    .cardish img {
+      display: block;
+      margin-bottom: 0 !important;
+    }
 
     /* Section spacing */
     .section { padding-top: 1rem !important; padding-bottom: 1rem !important; }
@@ -33,7 +37,7 @@
     .section-title { font-weight:800; font-size: 1.6rem; margin-bottom: 0.75rem; }
 
     /* Videos */
-    .video-list { display: flex; flex-direction: column; gap: 12px; margin-top: 1rem; }
+    .video-list { display: flex; flex-direction: column; gap: 20px; margin-top: 1rem; }
 
     /* Capsule links */
     .capsule-links { margin-top:1rem; }
@@ -52,9 +56,23 @@
     .capsule-links a:hover { background:#1d4ed8; transform: translateY(-1px); }
 
     /* Teaser figure spacing */
-    .cardish img + p { margin-top: 0.3rem; font-size:1.15rem; }
+    .cardish img + p { margin-top: 0.1rem; font-size:1.15rem; }
 
     .footer { color:#8a939f; margin-top: 2rem; }
+
+    .image,
+    figure.image {
+      margin-bottom: 0 !important;
+    }
+
+    .cardish .image,
+    .cardish figure.image {
+      margin-top: 0.5rem;
+    }
+
+    .cardish .section-title + p {
+      text-align: justify;
+    }
   </style>
 </head>
 <body>
@@ -146,8 +164,8 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="cardish content">
-        <h2 class="title section-title">Results</h2>
-        <p>[Placeholder text for describing results.]</p>
+        <h2 class="title section-title">Rendering Results</h2>
+        <p>Left: video renderings produced by our method; Right: input images</p>
         <div class="video-list">
           <video src="https://github.com/user-attachments/assets/377de659-3e9f-47ed-b9f6-5821fefa944d" controls></video>
           <video src="https://github.com/user-attachments/assets/86f79308-6970-49d7-8d1f-e2954600b49b" controls></video>
@@ -164,6 +182,40 @@
     <div class="container is-max-desktop">
       <div class="cardish content">
         <h2 class="title section-title">Limitations</h2>
-        <p>Performance drops in regions with severe local blur.
-          Linear camera motion modeling limits accuracy for complex trajectories.
-          Cannot handle per-pixel mixed-blur types
+        <ul style="text-align: justify;">
+          <li>Performance drops in regions with severe local blur.</li>
+          <li>Linear camera motion modeling limits accuracy for complex trajectories.</li>
+          <li>Cannot handle per-pixel mixed-blur types (e.g., the entanglement of motion and defocus blur).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acknowledgements -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title section-title">Acknowledgements</h2>
+        <p>We thank the anonymous reviewers for their valuable feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="cardish content">
+        <h2 class="title section-title">References</h2>
+        <p>[Placeholder for formatted references]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer has-text-centered">
+    <div class="container is-max-desktop">
+      <p>&copy; 2025 Unified 3D Gaussian Splatting. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
