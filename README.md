@@ -1,7 +1,6 @@
 # Unified 3D Gaussian Splatting for Motion and Defocus Blur Reconstruction
 
-Official implementation of our CAD/Graphics 2025 & Visual Informatics paper.  
-## 🌐[Project Webpage](https://sunbeam-217.github.io/Dual-blur-reconstruction/)
+Official implementation of our CAD/Graphics 2025 & Visual Informatics paper.  🌐[Project Webpage](https://sunbeam-217.github.io/Dual-blur-reconstruction/)
 
 
 
